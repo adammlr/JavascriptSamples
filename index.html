@@ -14,20 +14,31 @@
     //module pattern as singleton
     ns.module.add(1);
     console.log(ns.module.getValue()); //1
+    console.log(ns.module.addCalled); //1
 
+    console.log('');
     //module pattern as instance
     var obj = ns.moduleInstance();
-    var obj2 = ns.moduleInstance();
-    obj.add(5);
-    console.log(obj.getValue()); //5
-    console.log(obj2.getValue()); //0
+    var obj2 = ns.moduleInstance(1);
+    obj.add(1);
+    obj2.add(1);
+    obj2.add(1);
+    console.log(obj.getValue()); //1
+    console.log(obj2.getValue()); //3
+    console.log(obj.addCalled);//1
+    console.log(obj2.addCalled);//2
 
+    console.log('');
     //module pattern as prototype
     var obj3 = new ns.ModulePrototype();
-    var obj4 = new ns.ModulePrototype();
-    obj3.add(2);
-    console.log(obj3.getValue()); //2
-    console.log(obj4.getValue()); //0
+    var obj4 = new ns.ModulePrototype(1);
+    obj3.add(1);
+    obj4.add(1);
+    obj4.add(1);
+    console.log(obj3.getValue()); //1
+    console.log(obj4.getValue()); //3
+    console.log(obj3.addCalled);//1
+    console.log(obj4.addCalled);//2
 </script>
 
 </body>
