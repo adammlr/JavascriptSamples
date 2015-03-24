@@ -13,3 +13,12 @@
         addCalled: 0 //public property
     }
 }(window.ns));
+
+
+/* alternate declaration
+ window.ns.module = (function() {
+    return {
+        add: function(){}
+    }
+ })();
+ */
